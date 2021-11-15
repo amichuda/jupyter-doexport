@@ -24,7 +24,7 @@ Thanks also to
 --------------
 
 Kyle Barron for an amazing Stata kernel implementation.
-You can see how to install it `here <https://kylebarron.github.io/stata_kernel/>`_.
+You can see how to install it [here](https://kylebarron.github.io/stata_kernel/).
 
 
 
