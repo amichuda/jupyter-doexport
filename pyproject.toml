@@ -4,7 +4,7 @@ version = "0.0.0"
 description = "A package to convert jupyter notebooks to Stata do-files"
 authors = ["Aleksandr Michuda <amichuda@gmail.com>"]
 license = "MIT"
-readme = "README.rst"
+readme = "README.md"
 homepage = "https://github.com/amichuda/jupyter-doexport"
 
 [tool.poetry.dependencies]
