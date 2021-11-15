@@ -1,11 +1,11 @@
-"""
-Comments out stata_kernel magics
-"""
+from stata_kernel.stata_magics import StataMagics
 
 def magic_stripper(element):
 
-    if element.strip().startswith("%"):
+   s = StataMagics(kernel=None)
+
+   if element in [f"%{magic}" for magic in s.available_magics]:
         
-       element = "* " + element 
+      element = "* " + element 
     
-    return element
+   return element

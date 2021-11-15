@@ -3,7 +3,7 @@
 import os
 import os.path
 
-from traitlets.config import Config
+from traitlets.config import Config, default
 
 from nbconvert.exporters.templateexporter import TemplateExporter
 from .magic_convert import magic_stripper
@@ -14,16 +14,18 @@ class StataDoExporter(TemplateExporter):
     """
     Exports a Stata Do file
     """
-
-
+    
     def _file_extension_default(self):
         return '.do'
     
-    @property
-    def extra_template_basedirs(self):
-        return super()._default_extra_template_basedirs()+[os.path.join(os.path.dirname(__file__), "templates")]
+    @default('extra_template_basedirs')
+    def _extra_template_basedirs(self):
+        return super()._default_extra_template_basedirs() + [os.path.join(os.path.dirname(__file__), "templates")]
     
     def _template_name_default(self):
+        return 'dofile'
+
+    def _template_file_default(self):
         return 'dofile'
 
     export_from_notebook = "Stata do-file"
