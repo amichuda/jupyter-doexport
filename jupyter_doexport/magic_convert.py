@@ -2,7 +2,7 @@
 Comments out stata_kernel magics
 """
 
-def magic_converter(element):
+def magic_stripper(element):
 
     if element.strip().startswith("%"):
         

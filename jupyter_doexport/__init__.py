@@ -6,7 +6,7 @@ import os.path
 from traitlets.config import Config
 
 from nbconvert.exporters.templateexporter import TemplateExporter
-from .magic_convert import magic_converter
+from .magic_convert import magic_stripper
 
 
 class StataDoExporter(TemplateExporter):
@@ -17,22 +17,21 @@ class StataDoExporter(TemplateExporter):
 
 
     def _file_extension_default(self):
-
         return '.do'
     
     @property
-    def template_path(self):
-        
-        return super().template_path+[os.path.join(os.path.dirname(__file__), "templates")]
+    def extra_template_basedirs(self):
+        return super()._default_extra_template_basedirs()+[os.path.join(os.path.dirname(__file__), "templates")]
+    
+    def _template_name_default(self):
+        return 'dofile'
 
-    def _template_file_default(self):
-
-        return 'statado'
-
-    export_from_notebook = "dofile"
+    export_from_notebook = "Stata do-file"
 
     def default_filters(self):
-
         ## add the filter I want for commenting out the magics
-        new_filter = {'magic_converter':magic_converter}
+        new_filter = {'magic_stripper':magic_stripper}
         return super().default_filters().__or__(new_filter.items())
+
+from . import _version
+__version__ = _version.get_versions()['version']

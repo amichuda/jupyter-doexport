@@ -1,13 +1,15 @@
 from setuptools import setup
+import versioneer
 
 setup(
-    name='Stata Do-file Exporter',
-    version='0.1.1',
-    packages=['statadoexport'],
+    name='jupyter-doexport',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.getcmdclass(),
+    packages=['jupyter_doexport'],
     author='Aleksandr Michuda',
     author_email='amichuda@gmail.com',
     description='An nbconvert exporter from .ipynb to .do',
-    url='https://github.com/lordflaron/StataDoExport',
+    url='https://github.com/amichuda/jupyter-doexport',
     license='LICENSE',
     long_description = open('README.rst').read(),
     install_requires=[
@@ -15,7 +17,7 @@ setup(
     ],
     entry_points={
         'nbconvert.exporters' : [
-            'dofile = statadoexport:StataDoExporter'
+            'dofile = jupyter_doexport:StataDoExporter'
         ]
     }    
 )

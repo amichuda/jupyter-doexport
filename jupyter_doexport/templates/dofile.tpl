@@ -14,7 +14,7 @@ Stata Do File converted from Jupyter notebook
 {% endblock in_prompt %}
 
 {% block input %}
-{{ cell.source | magic_converter }}
+{{ cell.source | magic_stripper }}
 {% endblock input %}
 
 {% block markdowncell scoped %}
