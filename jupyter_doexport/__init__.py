@@ -6,7 +6,7 @@ import os.path
 from traitlets.config import Config, default
 
 from nbconvert.exporters.templateexporter import TemplateExporter
-from .magic_convert import magic_stripper
+from .magic_convert import convert_text_html, magic_stripper
 
 
 class StataDoExporter(TemplateExporter):
@@ -32,7 +32,8 @@ class StataDoExporter(TemplateExporter):
 
     def default_filters(self):
         ## add the filter I want for commenting out the magics
-        new_filter = {'magic_stripper':magic_stripper}
+        new_filter = {'magic_stripper':magic_stripper,
+                      'convert_text_html' : convert_text_html}
         return super().default_filters().__or__(new_filter.items())
 
 from . import _version

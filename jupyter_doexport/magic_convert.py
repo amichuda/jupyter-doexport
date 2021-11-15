@@ -1,11 +1,14 @@
-from stata_kernel.stata_magics import StataMagics
+import pandas as pd
+from io import StringIO
 
 def magic_stripper(element):
 
-   s = StataMagics(kernel=None)
-
-   if element in [f"%{magic}" for magic in s.available_magics]:
+   if element.startswith("%"):
         
       element = "* " + element 
     
    return element
+
+def convert_text_html(element):
+   df = pd.read_html(StringIO(element))[0]
+   return df.to_markdown()
