@@ -4,9 +4,14 @@
 {%- block header -%}
 /*
 Stata Do File converted from Jupyter notebook
+
+Output Included
 */
 {% endblock header %}
 
+{% block in_prompt %}
+
+{% endblock in_prompt %}
 
 {% block input %}
 {% if resources.global_content_filter.include_input_prompt -%}
@@ -18,10 +23,18 @@ Stata Do File converted from Jupyter notebook
 {% endif %}
 {% endblock input %}
 
-{% block output %}
-{% endblock output %}
-
+{% block stream %}
+{{ output.text | comment_lines(prefix='* ') }}
+{% endblock stream %}
 
 {% block markdowncell scoped %}
 {{ cell.source | comment_lines(prefix='* ') }}
 {% endblock markdowncell %}
+
+{% block data_html scoped %}
+    {% if "text/html" in output.data %}
+        {{ output.data['text/html'] | convert_text_html | comment_lines(prefix='* ')  }}
+    {% else %}
+        {{ output.data['text/html'] | comment_lines(prefix='* ')  }}
+    {% endif %}
+{% endblock data_html %}

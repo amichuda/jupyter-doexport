@@ -18,7 +18,8 @@ setup(
     ],
     entry_points={
         'nbconvert.exporters' : [
-            'dofile = jupyter_doexport:StataDoExporter'
+            'dofile = jupyter_doexport:StataDoExporter',
+            'dofile_output = jupyter_doexport:StataDoExporterWithOutput'
         ]
     }    
 )
