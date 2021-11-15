@@ -4,7 +4,7 @@ import versioneer
 setup(
     name='jupyter-doexport',
     version=versioneer.get_version(),
-    cmdclass=versioneer.getcmdclass(),
+    cmdclass=versioneer.get_cmdclass(),
     packages=['jupyter_doexport'],
     author='Aleksandr Michuda',
     author_email='amichuda@gmail.com',
@@ -13,7 +13,8 @@ setup(
     license='LICENSE',
     long_description = open('README.rst').read(),
     install_requires=[
-        "nbconvert"
+        "nbconvert",
+        "stata_kernel"
     ],
     entry_points={
         'nbconvert.exporters' : [
