@@ -7,7 +7,7 @@ Stata Do File Exporter provides a context menu and template for exporting a jupy
 
 To install the exporter, write:
 
-``pip install jupyter-doexporty``
+``pip install jupyter-doexport``
 
 Your jupyter notebook should not be available for export from the  ``File ->  Download as`` menu.
 
