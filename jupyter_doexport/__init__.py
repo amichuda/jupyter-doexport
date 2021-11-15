@@ -8,7 +8,7 @@ from traitlets.config import Config, default
 from nbconvert.exporters.templateexporter import TemplateExporter
 from .magic_convert import convert_text_html, magic_stripper
 
-
+ 
 class StataDoExporter(TemplateExporter):
 
     """

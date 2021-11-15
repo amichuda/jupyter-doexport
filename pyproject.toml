@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jupyter-doexport"
-version = "0.3.1"
+version = "0.0.0"
 description = "A package to convert jupyter notebooks to Stata do-files"
 authors = ["Aleksandr Michuda <amichuda@gmail.com>"]
 license = "MIT"
