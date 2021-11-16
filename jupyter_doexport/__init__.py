@@ -58,5 +58,3 @@ class StataDoExporterWithOutput(TemplateExporter):
         return super().default_filters().__or__(new_filter.items())
     
     
-from . import _version
-__version__ = _version.get_versions()['version']
