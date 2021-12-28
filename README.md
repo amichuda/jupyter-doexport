@@ -1,5 +1,10 @@
 # jupyter-doexport
 
+
+
+[![DOI](https://zenodo.org/badge/150799719.svg)](https://zenodo.org/badge/latestdoi/150799719)
+
+
 This packages provides a context menu and template for exporting a jupyter notebook with Stata kernel, to a do-file with all markdown and code ready to be executed at the Stata GUI or console.
 
 To install the exporter, write:
